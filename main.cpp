@@ -14,13 +14,13 @@ bool oceanDreamerRevived = false;
 bool forestWhispererRevived = false;
 bool stardustSparklerRevived = false;
 
-int needR, needB, needY;
-int needG, needO;
-int needI, needV;
+int needR = 0, needB = 0, needY = 0;
+int needG = 0, needO = 0;
+int needI = 0, needV = 0;
 
 bool unicornSelected = false; 
 string currentUnicorn = "";
-int unicornChoice; 
+int unicornChoice =0; 
 
 
 
@@ -49,14 +49,14 @@ be printed like this in the next iteration.
 5. Stardust Knight
 */
     while (!validChoice) {
-        cout << "\nFrozen Unicorns to Revive:\n";
-        if (!scarletRevived) cout << "\n1. Scarlet Comet is still frozen \n";
-        if (!sunshineSpeedsterRevived) cout << "2. Sunshine Speedster is still frozen \n";
-        if (!oceanDreamerRevived) cout << "3. Ocean Dreamer is still frozen \n";
-        if (!forestWhispererRevived) cout << "4. Forest Whisperer is still frozen \n";
-        if (!stardustSparklerRevived) cout << "5. Stardust Knight is still frozen \n";
+        cout << "Frozen Unicorns to Revive:\n\n";
+        if (!scarletRevived) cout << "1. Scarlet Comet is still frozen\n";
+        if (!sunshineSpeedsterRevived) cout << "2. Sunshine Speedster is still frozen\n";
+        if (!oceanDreamerRevived) cout << "3. Ocean Dreamer is still frozen\n";
+        if (!forestWhispererRevived) cout << "4. Forest Whisperer is still frozen\n";
+        if (!stardustSparklerRevived) cout << "5. Stardust Knight is still frozen\n";
 
-        cout << "Select the Unicorn Number that you want revive now:";
+        cout << "Select the Unicorn Number that you want revive now:" << endl; 
         cin >> unicornChoice; // choosing to resuce a unicorn
 
 /*
@@ -76,13 +76,13 @@ asks you to select again.
 made.
 */
  if (cin.fail()) {
-                cout << "\nInvalid input. Please enter a number between 1 and 5.\n";
+                cout << "Invalid input. Please enter a number between 1 and 5.\n\n";
                 cin.clear();
                 cin.ignore(1000, '\n');
                 continue;
             }
             if (unicornChoice < 1 || unicornChoice > 5) {
-                cout << "There’s no such unicorn.\n";
+                cout << "There's no such unicorn.\n\n";
                 continue;
             }
                 if ((unicornChoice == 1 && scarletRevived) ||
@@ -90,7 +90,7 @@ made.
                     (unicornChoice == 3 && oceanDreamerRevived) ||
                     (unicornChoice == 4 && forestWhispererRevived) ||
                     (unicornChoice == 5 && stardustSparklerRevived)) {
-                    cout << "This unicorn is already revived.\n";
+                    cout << currentUnicorn << " is already revived. Select another unicorn.\n\n";
                     continue;
                 }
                 validChoice = true;
@@ -109,40 +109,32 @@ values of each of these variables will be: needV=0, needI=0,
 needB=3, needG=0, needY=2, needO=0, needR=7. 
 • Print the color needs of the selected Unicorn.     
 */
-   cout <<"\nThe colors needed to revieve this unicorn are : " ;
+   cout <<"\nThe colors needed to revive this unicorn are: " ;
    if (unicornChoice == 1) {
     needR = 7; needB = 3; needY = 2;
-    cout << "Red=7, Blue=3, Yellow=2";
+    cout << "Red=7 drops, Blue=3 drops, Yellow=2 drops\n" << endl;
     currentUnicorn = "Scarlet Comet";
-}
-
-else if (unicornChoice == 2) {
+}else if (unicornChoice == 2) {
     needY = 8; needG = 3; needO = 2;
-    cout << "Yellow=8, Green=3, Orange=2";
+    cout << "Yellow=8 drops, Green=3 drops, Orange=2 drops\n" << endl;
     currentUnicorn = "Sunshine Speedster";
-}
-
-else if (unicornChoice == 3) {
+}else if (unicornChoice == 3) {
     needB = 6; needI = 4; needV = 2;
-    cout << "Blue=6, Indigo=4, Violet=2";
+    cout << "Blue=6 drops, Indigo=4 drops, Violet=2 drops\n" << endl;
     currentUnicorn = "Ocean Dreamer";
-}
-
-else if (unicornChoice == 4) {
+}else if (unicornChoice == 4) {
     needG = 5; needR = 2; needO = 3;
-    cout << "Green=5, Red=2, Orange=3";
+    cout << "Green=5 drops, Red=2 drops, Orange=3 drops\n" << endl;
     currentUnicorn = "Forest Whisperer";
-}
-
-else if (unicornChoice == 5) {
-    needV = 7; needI = 5; needB = 3;
-    cout << "Violet=7, Indigo=5, Blue=3";
+}else if (unicornChoice == 5) {
+    needV = 7; needI = 3; needY = 3;
+    cout << "Violet=7 drops, Indigo=3 drops, Yellow=3 drops\n" << endl;
     currentUnicorn = "Stardust Knight";
 }
 
       // else { 
     //     cout << "Forest Whisperer is already revived. Select another unicorn." << endl; 
-    cout << " Drops\n"; 
+
 
            // the rainbow waterfall 
     long long drops = 1; 
@@ -193,16 +185,44 @@ o Print the drop number and its color.
    while (true) { 
     long windowIndex = ((drops - 1 )/ 7) % 7; 
     int colorIndex = static_cast<int>(windowIndex % 7); 
-    if (colorIndex == 0) currentColor = "Violet";
-    else if (colorIndex == 1) currentColor = "Indigo";
-    else if (colorIndex == 2) currentColor = "Blue";
-    else if (colorIndex == 3) currentColor = "Green";
-    else if (colorIndex == 4) currentColor = "Yellow";
-    else if (colorIndex == 5) currentColor = "Orange";
-    else currentColor = "Red";
+    if (colorIndex == 0) currentColor = "violet";
+    else if (colorIndex == 1) currentColor = "indigo";
+    else if (colorIndex == 2) currentColor = "blue";
+    else if (colorIndex == 3) currentColor = "green";
+    else if (colorIndex == 4) currentColor = "yellow";
+    else if (colorIndex == 5) currentColor = "orange";
+    else currentColor = "red";
 
     cout << "Drop:" << drops << "|| The current waterfall drop is: " << currentColor << endl;
-    bool collected = false; // collecting the drops flag
+    // Reset collected flag for each drop
+    bool collected = false;
+
+    // Favorite color drinking rule for revived unicorns
+    if (scarletRevived && currentColor == "red" && drops % 2 == 0) {
+        cout << "Drop:" << drops << "|| Scarlet Comet drinks this " << currentColor << " drop" << endl << endl;
+        drops++;
+        continue;
+    }
+    if (sunshineSpeedsterRevived && currentColor == "yellow" && drops % 2 == 0) {
+        cout << "Drop:" << drops << "|| Sunshine Speedster drinks this " << currentColor << " drop" << endl << endl;
+        drops++;
+        continue;
+    }
+    if (oceanDreamerRevived && currentColor == "blue" && drops % 2 == 0) {
+        cout << "Drop:" << drops << "|| Ocean Dreamer drinks this " << currentColor << " drop" << endl << endl;
+        drops++;
+        continue;
+    }
+    if (forestWhispererRevived && currentColor == "green" && drops % 2 == 0) {
+        cout << "Drop:" << drops << "|| Forest Whisperer drinks this " << currentColor << " drop" << endl << endl;
+        drops++;
+        continue;
+    }
+    if (stardustSparklerRevived && currentColor == "violet" && drops % 2 == 0) {
+        cout << "Drop:" << drops << "|| Stardust Knight drinks this " << currentColor << " drop" << endl << endl;
+        drops++;
+        continue;
+    }
 
 /*
 D. Problem Part II:  
@@ -225,33 +245,43 @@ color is its favorite color. So, for example if Scarlet Comet is revived, the
 prince/princess can only collect drop 1, 3, 5 and 7 of red color if he/she needs that 
 color next. 
 
+
+E. Problem Part II Programming Tasks: 
+1. Updated Task 5 of Part I: Collecting drops 
+Modify task 5 of part I in the following way− 
+• For each drop of the rainbow waterfall: 
+o If it’s the favorite color of a revived unicorn, and the drop number 
+is even; then print the drop number and the message: [Unicorn 
+Name] drinks this drop. 
+o Otherwise, if it’s a needed color for the current unicorn; then 
+collect it and increase the corresponding collectX variable. 
 */
-if (scarletRevived && currentColor == "Red" && drops % 2 == 0) {
-        cout << "Scarlet Comet drinks this drop.\n\n";
+if (scarletRevived && currentColor == "red" && drops % 2 == 0) {
+        cout <<"Drop:" << drops << "|| Scarlet Comet drinks this " << currentColor << " drop" << endl << endl;
         drops++;
         continue;
     }
 
-    if (sunshineSpeedsterRevived && currentColor == "Yellow" && drops % 2 == 0) {
-        cout << "Sunshine Speedster drinks this drop.\n\n";
+    if (sunshineSpeedsterRevived && currentColor == "yellow" && drops % 2 == 0) {
+        cout <<"Drop:" << drops << "|| Sunshine Speedster drinks this " << currentColor << " drop " << endl << endl;
         drops++;
         continue;
     }
 
-    if (oceanDreamerRevived && currentColor == "Blue" && drops % 2 == 0) {
-        cout << "Ocean Dreamer drinks this drop.\n\n";
+    if (oceanDreamerRevived && currentColor == "blue" && drops % 2 == 0) {
+        cout <<"Drop:" << drops << "|| Ocean Dreamer drinks this " << currentColor << " drop " << endl << endl;
         drops++;
         continue;
     }
 
-    if (forestWhispererRevived && currentColor == "Green" && drops % 2 == 0) {
-        cout << "Forest Whisperer drinks this drop.\n\n";
+    if (forestWhispererRevived && currentColor == "green" && drops % 2 == 0) {
+        cout <<"Drop:" << drops << "|| Forest Whisperer drinks this " << currentColor << " drop " << endl << endl;
         drops++;
         continue;
     }
 
-    if (stardustSparklerRevived && currentColor == "Violet" && drops % 2 == 0) {
-        cout << "Stardust Knight drinks this drop.\n\n";
+    if (stardustSparklerRevived && currentColor == "violet" && drops % 2 == 0) {
+        cout <<"Drop:" << drops << "|| Stardust Knight drinks this " << currentColor << " drop " << endl << endl;
         drops++;
         continue;
     }
@@ -304,116 +334,115 @@ iteration of the outer while loop and print the same for that one too.
 are revived.
 */
    if (unicornChoice == 1) {
-        if (currentColor == "Red" && needR > 0) {
-             needR--; collected = true;
-             }
-        if (currentColor == "Blue" && needB > 0) { 
-            needB--; collected = true;
-         }
-        if (currentColor == "Yellow" && needY > 0) {
-             needY--; collected = true; 
+        // Only collect if still needed
+        if (currentColor == "red" && needR > 0) {
+            needR--; collected = true;
         }
-
+        if (currentColor == "blue" && needB > 0) {
+            needB--; collected = true;
+        }
+        if (currentColor == "yellow" && needY > 0) {
+            needY--; collected = true;
+        }
+        // Print collection message on its own line
+        if (collected) {
+            cout << "Drop:"<<drops <<"||"<< " You collect this " << currentColor << " drop" << endl << endl;
+        }
         if (needR == 0 && needB == 0 && needY == 0) {
             scarletRevived = true;
-        cout << "\nThe total time taken to revive Scarlet Comet is: " << drops << " minutes." << endl; 
+            cout << "The total time taken to revive Scarlet Comet is:" << drops << " minutes." << endl;
+            cout << "\nThe Scarlet Comet unicorn is revived!!!\n"  << endl; 
             break;
         }
-         if (collected) {
-                cout << "You collect this " << currentColor << " drop\n\n";
-            }
         drops++;
     }
 
 
     
     if(unicornChoice == 2) {
-        if (currentColor == "Yellow" && needY > 0) {
-             needY--; collected = true; 
-            }
-        if (currentColor == "Green" && needG > 0) {
-             needG--; collected = true; 
-            }
-        if (currentColor == "Orange" && needO > 0) {
-             needO--; collected = true; 
-            }
+        if (currentColor == "yellow" && needY > 0) {
+            needY--; collected = true;
+        }
+        if (currentColor == "green" && needG > 0) {
+            needG--; collected = true;
+        }
+        if (currentColor == "orange" && needO > 0) {
+            needO--; collected = true;
+        }
+        if (collected) {
+            cout << "Drop:"<<drops <<"||"<< " You collect this " << currentColor << " drop" << endl << endl;
+        }
         if (needY == 0 && needG == 0 && needO == 0) {
             sunshineSpeedsterRevived = true;
-            cout << "\nThe total time taken to revive Sunshine Speedster is: " << drops << " minutes." << endl; 
-            cout <<"\nSunshine Speedster is revived!!!\n";
+            cout << "The total time taken to revive Sunshine Speedster is:" << drops << " minutes." << endl;
+            cout << "\nThe Sunshine Speedster unicorn is revived!!!\n"<< endl; 
             break;
         }
- if (collected) {
-                cout << "You collect this " << currentColor << " drop\n\n";
-            }
         drops++;
     }
 
     if(unicornChoice == 3 ) { 
-        if ( currentColor =="Blue" && needB > 0 ) { 
-            needB--; 
-            collected = true; 
-        }  
-        if( currentColor == "Indigo" && needI > 0) { 
-            needI--; 
-            collected = true; 
+        if (currentColor == "blue" && needB > 0) {
+            needB--; collected = true;
         }
-        if(currentColor == "Violet" && needV > 0) { 
-            needV--; 
-            collected = true; 
+        if (currentColor == "indigo" && needI > 0) {
+            needI--; collected = true;
         }
-        if(needB == 0 && needI == 0 && needV == 0) {
-           oceanDreamerRevived = true;
-            cout << "\nThe total time taken to revive Ocean Dreamer is: " << drops << " minutes." << endl; 
-            cout <<"\nOcean Dreamer is revived!!!\n";
+        if (currentColor == "violet" && needV > 0) {
+            needV--; collected = true;
+        }
+        if (collected) {
+            cout << "Drop:"<<drops <<"||"<< " You collect this " << currentColor << " drop" << endl << endl;
+        }
+        if (needB == 0 && needI == 0 && needV == 0) {
+            oceanDreamerRevived = true;
+            cout << "The total time taken to revive Ocean Dreamer is:" << drops << " minutes." << endl;
+            cout << "\nThe Ocean Dreamer unicorn is revived!!!\n" << endl;
             break;
         }
-        if(collected) { 
-            cout << "You collected this " << currentColor << " drop\n\n"; 
-        }
-        drops++;  
+        drops++;
     }
 
     if(unicornChoice == 4) { 
-        if (currentColor == "Green" && needG > 0) {
-             needG--; collected = true; 
-            }
-        if (currentColor == "Red" && needR > 0) {
-             needR--; collected = true; 
-            }
-        if (currentColor == "Orange" && needO > 0) {
-             needO--; collected = true; 
-            }
+        if (currentColor == "green" && needG > 0) {
+            needG--; collected = true;
+        }
+        if (currentColor == "red" && needR > 0) {
+            needR--; collected = true;
+        }
+        if (currentColor == "orange" && needO > 0) {
+            needO--; collected = true;
+        }
+        if (collected) {
+            cout << "Drop:"<<drops <<"||"<< " You collect this " << currentColor << " drop" << endl << endl;
+        }
         if (needG == 0 && needR == 0 && needO == 0) {
             forestWhispererRevived = true;
-            cout << "\nThe total time taken to revive Forest Whisperer is: " << drops << " minutes." << endl; 
-            cout <<"\nForest Whisperer is revived!!!\n";
+            cout << "The total time taken to revive Forest Whisperer is:" << drops << " minutes." << endl;
+            cout << "\nThe Forest Whisperer unicorn is revived!!!\n" << endl;
             break;
         }
-         if (collected) {
-                cout << "You collect this " << currentColor << " drop\n\n";
-            }
         drops++;
     }
     if(unicornChoice == 5) { 
-        if (currentColor == "Violet" && needV > 0) {
-             needV--; collected = true; 
-            }
-        if (currentColor == "Indigo" && needI > 0) {
-             needI--; collected = true; 
-            }
-        if (currentColor == "Blue" && needB > 0) {
-             needB--; collected = true; 
-            }
-        if (needV == 0 && needI == 0 && needB == 0) {
+        if (currentColor == "violet" && needV > 0) {
+            needV--; collected = true;
+        }
+        if (currentColor == "indigo" && needI > 0) {
+            needI--; collected = true;
+        }
+        if (currentColor == "yellow" && needY > 0) {
+            needY--; collected = true;
+        }
+        if (collected) {
+            cout << "Drop:"<<drops <<"||"<< " You collect this " << currentColor << " drop" << endl << endl;
+        }
+        if (needV == 0 && needI == 0 && needY == 0) {
             stardustSparklerRevived = true;
-            cout << "\nThe total time taken to revive Stardust Knight is: " << drops << " minutes." << endl; 
-            cout <<"\nStardust Knight is revived!!!\n";
+            cout << "The total time taken to revive Stardust Knight is:" << drops << " minutes." << endl;
+            cout << "\nThe Stardust Knight unicorn is revived!!!\n" << endl;
             break;
         }
-         if (collected) {
-                cout << "You collect this " << currentColor << " drop\n\n";
-            }
         drops++;
 }
 }
@@ -422,7 +451,47 @@ are revived.
 
 
 
-cout << "All unicorns have been revived! The magic of Aurelia is restored!\n";
+cout << "\n The 5 powerful unicorns are revived and now they can create the magic rainbow:\n\n";
+
+
+/* 
+F. Problem Part III:  
+Once all five unicorns are revived, they gather at the Rainbow Waterfall and create 
+a magical rainbow arc with their favorite colors. Print this once the while loop 
+ends: “The 5 powerful unicorns are revived and now they can create the magic 
+rainbow”. The rainbow is drawn in a special pattern of letters (R, Y, B, G, V).  
+    RYBGV 
+        RYBGV 
+            RYBGV 
+            RYBGV   
+        RYBGV 
+    RYBGV
+
+G. Problem Part III Programming Tasks: 
+1. Task 7: Creating the rainbow 
+• Use nested for loops to control spacing and printing characters. 
+• Outer loop decides which row you are in. 
+• Inner loop prints the spaces first, then the color sequence RYBGV. 
+• The middle two rows have maximum indentation, and they have the 
+same indentation.
+*/
+for (int row = 1; row <= 6; row++) {
+
+    int spaces = 0;
+
+    if (row <= 3)
+        spaces = (row - 1) * 3;   // 0, 3, 6
+    else
+        spaces = (6 - row) * 3;   // 6, 3, 0
+
+    for (int s = 0; s < spaces; s++) {
+        cout << " ";
+    }
+
+    cout << "RYBGV\n";
+}
+
+
 
     /* Step 4 
 Constraints: You need to keep in mind− 

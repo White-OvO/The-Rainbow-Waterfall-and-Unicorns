@@ -1,0 +1,8 @@
+A. Story Setup 
+Imagine, you are the prince/princess of a magical kingdom named Aurelia. Your 
+kingdom was attacked by a witch, and the 5 most powerful unicorns of your 
+kingdom−Scarlet Comet, Sunshine Speedster, Ocean Dreamer, Forest Whisperer 
+and Stardust Knight; were cursed and frozen by her.  
+You, as the prince/princess of Aurelia, are on a mission to bring them back to life. 
+Only once when all five of them are revived and they create the magical rainbow 
+with each of their favorite colors, the magic of Aurelia will be back.
